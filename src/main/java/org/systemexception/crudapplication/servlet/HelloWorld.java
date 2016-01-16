@@ -1,7 +1,7 @@
 package org.systemexception.crudapplication.servlet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.systemexception.crudapplication.pojo.Constants;
 
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ import java.io.PrintWriter;
  */
 public class HelloWorld extends HttpServlet {
 
-	private final Logger LOG = LoggerFactory.getLogger(HelloWorld.class);
+	private static final Logger LOG = LogManager.getLogger(HelloWorld.class);
 
 	/**
 	 * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -26,7 +26,7 @@ public class HelloWorld extends HttpServlet {
 	 * @throws ServletException if a servlet-specific error occurs
 	 * @throws IOException      if an I/O error occurs
 	 */
-	public void processRequest(HttpServletRequest request, HttpServletResponse response)
+	public void processRequest(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -55,7 +55,7 @@ public class HelloWorld extends HttpServlet {
 	 * @throws IOException      if an I/O error occurs
 	 */
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
 		processRequest(request, response);
 	}

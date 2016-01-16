@@ -1,7 +1,7 @@
 package org.systemexception.crudapplication.servlet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.systemexception.crudapplication.exception.PojoMapperException;
 import org.systemexception.crudapplication.model.Employees;
 import org.systemexception.crudapplication.pojo.PojoMapper;
@@ -19,7 +19,7 @@ import java.io.PrintWriter;
  */
 public class EmployeesJson extends HttpServlet {
 
-	private final Logger LOG = LoggerFactory.getLogger(EmployeesJson.class);
+	private static final Logger LOG = LogManager.getLogger(EmployeesJson.class);
 	private final PojoMapper pojoMapper = new PojoMapper();
 
 	/**
@@ -31,7 +31,7 @@ public class EmployeesJson extends HttpServlet {
 	 * @throws IOException                                                       if an I/O error occurs
 	 * @throws org.systemexception.crudapplication.exception.PojoMapperException
 	 */
-	public void processRequest(HttpServletRequest request, HttpServletResponse response)
+	public void processRequest(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException, PojoMapperException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -66,7 +66,7 @@ public class EmployeesJson extends HttpServlet {
 	 * @throws IOException      if an I/O error occurs
 	 */
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	public void doGet(final HttpServletRequest request, final HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			processRequest(request, response);

@@ -56,7 +56,8 @@ public class InsertEmployeeTest {
 	public void testInsert() throws Exception {
 		HttpServletRequest request = mock(HttpServletRequest.class);
 		HttpServletResponse response = mock(HttpServletResponse.class);
-		when(request.getParameter("empID")).thenReturn(String.valueOf(employee.getEmpId()));
+		when(request.getParameter("employeeName")).thenReturn(String.valueOf(employee.getEmpName()));
+		when(request.getParameter("employeeSurname")).thenReturn(String.valueOf(employee.getEmpSurname()));
 		when(response.getWriter()).thenReturn(new PrintWriter(fileName));
 
 		PrintWriter writer = new PrintWriter(fileName);

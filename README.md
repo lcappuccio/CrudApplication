@@ -18,6 +18,14 @@ A basic crud application example
 2. Download and change JDBC URL, username and password in org.systemexception.crudapplication.impl.EmployeeDaoImpl
 3. Compile and deploy to you favourite web container
 
+## Dependencies
+
+### Testing
+Use `glassfish-embedded-all` and comment out `javaee-web-api`.
+
+### Production
+Use `javaee-web-api` and comment out `glassfish-embedded-all`.
+
 ## Usage
 Available servlets:
 * BadWorld: just generates a bunch of random hex codes
